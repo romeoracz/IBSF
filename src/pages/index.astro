@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+import { services } from '../data/services';
+import Icon from '../components/Icon.astro';
+
+const metaTitle = `${siteConfig.name} – ${siteConfig.tagline}`;
+const metaDescription =
+  'Independent damp surveys, indoor air quality testing and building forensics in Southampton, Winchester & London. Book a diagnostic visit.';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: siteConfig.name,
+  description: siteConfig.description,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: siteConfig.address.line1,
+    addressRegion: siteConfig.address.line2,
+  },
+  areaServed: siteConfig.areas.map((a) => ({ '@type': 'City', name: a })),
+  url: siteConfig.url,
+};
+---
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+  <section class="bg-gradient-to-b from-primary-light/30 to-white py-16 sm:py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+        Independent Building Science & Forensics
+      </h1>
+      <p class="mt-2 text-xl font-medium text-primary sm:text-2xl">
+        Expert diagnostics in Southampton, Winchester & London
+      </p>
+      <p class="mt-4 max-w-2xl text-lg text-gray-600">
+        Damp surveys, indoor air quality testing and building forensics. Evidence-based, impartial reports for homeowners, buyers and professionals.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href={siteConfig.bookingUrl}
+          class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-white no-underline hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        >
+          Book a Diagnostic Visit
+        </a>
+        <a
+          href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}
+          class="inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 no-underline hover:border-accent-blue hover:text-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2"
+        >
+          <Icon name="phone" class="h-5 w-5" />
+          {siteConfig.phone}
+        </a>
+        <a
+          href={siteConfig.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-lg border-2 border-green-500 bg-white px-6 py-3 text-base font-medium text-gray-700 no-underline hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20" aria-labelledby="services-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="services-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl">
+        Our services
+      </h2>
+      <p class="mt-2 text-gray-600">
+        Independent diagnostics for damp, air quality, materials failure and building forensics across the South East.
+      </p>
+      <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              class="flex gap-4 rounded-xl border border-gray-200 bg-white p-6 no-underline shadow-sm transition hover:border-primary hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary-light text-primary">
+                <Icon name={s.icon as any} class="h-6 w-6" />
+              </span>
+              <div>
+                <h3 class="font-semibold text-gray-900">{s.title}</h3>
+                <p class="mt-1 text-sm text-gray-600">{s.shortDescription}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-gray-200 bg-gray-50 py-16 sm:py-20" aria-labelledby="trust-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="trust-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl">
+        Why independent?
+      </h2>
+      <p class="mt-4 max-w-3xl text-gray-600">
+        We are an impartial consultancy with no ties to contractors or remediation firms. Our reports are evidence-based and unbiased—backed by PhD-level expertise in chemical engineering, ongoing CPD and professional indemnity insurance. You get clear diagnostics and actionable recommendations, not sales pressure.
+      </p>
+      <ul class="mt-8 grid gap-4 sm:grid-cols-3">
+        <li class="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm">
+          <Icon name="shield-exclamation" class="h-6 w-6 shrink-0 text-primary" />
+          <span class="text-sm font-medium text-gray-900">No conflict of interest</span>
+        </li>
+        <li class="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm">
+          <Icon name="clipboard-document-check" class="h-6 w-6 shrink-0 text-primary" />
+          <span class="text-sm font-medium text-gray-900">Scientific methodology</span>
+        </li>
+        <li class="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm">
+          <Icon name="heart" class="h-6 w-6 shrink-0 text-primary" />
+          <span class="text-sm font-medium text-gray-900">PI insured & certified</span>
+        </li>
+      </ul>
+      <div class="mt-10">
+        <h3 class="text-lg font-semibold text-gray-900">What clients say</h3>
+        <blockquote class="mt-2 rounded-lg border-l-4 border-primary bg-white p-4 text-gray-700">
+          "Finally, an independent damp survey that explained the cause clearly and didn't push unnecessary work. Highly recommend for Southampton and Hampshire."
+        </blockquote>
+        <p class="mt-2 text-sm text-gray-500">— Homebuyer, Southampton</p>
+      </div>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <figure>
+          <div class="aspect-video rounded-lg bg-gray-200 flex items-center justify-center text-gray-500 text-sm">Before/after: damp remediation</div>
+          <figcaption class="mt-1 text-sm text-gray-600">Moisture mapping before and after remediation</figcaption>
+        </figure>
+        <figure>
+          <div class="aspect-video rounded-lg bg-gray-200 flex items-center justify-center text-gray-500 text-sm">Ventilation retrofit</div>
+          <figcaption class="mt-1 text-sm text-gray-600">Ventilation audit and improvement, Winchester</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20" aria-labelledby="locations-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="locations-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl">
+        Areas we serve
+      </h2>
+      <p class="mt-2 text-gray-600">
+        We provide building inspection, damp surveys and indoor air quality testing across Southampton, Winchester, London and the South East—including Hampshire, Haringey, Lambeth, Islington, Camden and Southwark.
+      </p>
+      <ul class="mt-8 flex flex-wrap gap-4">
+        <li>
+          <a href="/locations/southampton" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            Southampton
+          </a>
+        </li>
+        <li>
+          <a href="/locations/winchester" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            Winchester
+          </a>
+        </li>
+        <li>
+          <a href="/locations/london" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            London
+          </a>
+        </li>
+        <li>
+          <a href="/locations/haringey" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            Haringey
+          </a>
+        </li>
+        <li>
+          <a href="/locations/lambeth" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            Lambeth
+          </a>
+        </li>
+        <li>
+          <a href="/locations/camden" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            Camden
+          </a>
+        </li>
+        <li>
+          <a href="/locations/islington" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 no-underline hover:border-primary hover:text-primary">
+            <Icon name="map-pin" class="h-5 w-5 text-primary" />
+            Islington
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-gray-200 bg-primary py-12 sm:py-16">
+    <div class="mx-auto max-w-6xl px-4 text-center sm:px-6">
+      <h2 class="text-2xl font-bold text-white sm:text-3xl">
+        Ready to book a diagnostic?
+      </h2>
+      <p class="mt-2 text-primary-light">
+        Request a survey or speak to us for advice. We respond quickly.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={siteConfig.bookingUrl} class="inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-primary no-underline hover:bg-gray-100">
+          Book a Visit
+        </a>
+        <a href="/contact" class="inline-flex rounded-lg border-2 border-white px-6 py-3 font-semibold text-white no-underline hover:bg-white/10">
+          Contact us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

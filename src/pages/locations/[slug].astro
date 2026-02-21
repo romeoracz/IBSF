@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../site.config';
+import { locations } from '../../data/locations';
+import Icon from '../../components/Icon.astro';
+
+export function getStaticPaths() {
+  return locations.map((l) => ({ params: { slug: l.slug } }));
+}
+
+const { slug } = Astro.params;
+const location = locations.find((l) => l.slug === slug);
+
+if (!location) {
+  return Astro.redirect('/');
+}
+
+const metaTitle = location.metaTitle;
+const metaDescription = location.metaDescription;
+---
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <header>
+      <a href="/#locations-heading" class="text-sm text-accent-blue hover:underline">← All areas</a>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        {location.heading}
+      </h1>
+    </header>
+
+    <section class="mt-8">
+      <p class="text-gray-700 leading-relaxed">
+        {location.intro}
+      </p>
+    </section>
+
+    <section class="mt-8" aria-labelledby="challenges-heading">
+      <h2 id="challenges-heading" class="text-xl font-semibold text-gray-900">Local challenges</h2>
+      <p class="mt-2 text-gray-700 leading-relaxed">
+        {location.challenges}
+      </p>
+    </section>
+
+    <section class="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6" aria-labelledby="services-heading">
+      <h2 id="services-heading" class="text-xl font-semibold text-gray-900">Services in {location.name}</h2>
+      <p class="mt-2 text-gray-700">
+        We offer damp surveys, indoor air quality testing, building inspection, ventilation audits and building forensics across {location.name} and the South East.
+      </p>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        <li><a href="/services/damp-condensation-surveys" class="text-accent-blue hover:underline">Damp surveys</a></li>
+        <li><a href="/services/indoor-air-quality-ventilation" class="text-accent-blue hover:underline">Air quality</a></li>
+        <li><a href="/services/building-inspection-surveys" class="text-accent-blue hover:underline">Building inspection</a></li>
+        <li><a href="/services/water-ingress-damage" class="text-accent-blue hover:underline">Water ingress</a></li>
+      </ul>
+    </section>
+
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href={siteConfig.bookingUrl} class="inline-flex rounded-lg bg-primary px-6 py-3 font-semibold text-white no-underline hover:bg-primary-hover">
+        Book a visit in {location.name}
+      </a>
+      <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} class="inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 px-6 py-3 font-semibold text-gray-700 no-underline hover:border-accent-blue hover:text-accent-blue">
+        <Icon name="phone" class="h-5 w-5" />
+        {siteConfig.phone}
+      </a>
+      <a href="/contact" class="inline-flex rounded-lg border-2 border-gray-300 px-6 py-3 font-semibold text-gray-700 no-underline hover:border-primary hover:text-primary">
+        Contact us
+      </a>
+    </section>
+
+    <div class="mt-8 border-t border-gray-200 pt-8">
+      <p class="text-sm text-gray-600">
+        <strong>NAP:</strong> {siteConfig.name}, {siteConfig.address.full}. Tel: {siteConfig.phone}. Email: {siteConfig.email}.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

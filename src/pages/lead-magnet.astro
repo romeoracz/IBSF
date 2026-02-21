@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+<BaseLayout
+  title="Free Guide: Preventing Condensation After Insulation | IBFS"
+  description="Download our free checklist on preventing condensation after insulation. Practical steps to avoid mould and damp. Southampton, Winchester & London."
+>
+  <div class="mx-auto max-w-xl px-4 py-12 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+      Free checklist: Preventing condensation after insulation
+    </h1>
+    <p class="mt-2 text-gray-600">
+      Get our practical checklist to reduce condensation and mould after retrofit. Enter your email and we’ll send the PDF and keep you updated with building science tips (you can unsubscribe anytime).
+    </p>
+
+    <form action={siteConfig.formEndpoint} method="POST" class="mt-8 space-y-4">
+      <input type="hidden" name="_subject" value="Lead magnet: Condensation checklist" />
+      <input type="text" name="_gotcha" class="hidden" aria-hidden="true" tabindex={-1} autocomplete="off" />
+      <div>
+        <label for="lead-name" class="block text-sm font-medium text-gray-700">Name</label>
+        <input type="text" id="lead-name" name="name" required class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary" />
+      </div>
+      <div>
+        <label for="lead-email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="lead-email" name="email" required class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary" />
+      </div>
+      <button type="submit" class="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-white hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+        Send me the checklist
+      </button>
+    </form>
+
+    <p class="mt-6 text-sm text-gray-500">
+      After submitting, we’ll email you the checklist. If you need a ventilation audit or condensation survey in Southampton, Winchester or London, <a href="/contact" class="text-accent-blue hover:underline">get in touch</a>.
+    </p>
+
+    <a href="/blog" class="mt-8 inline-block text-accent-blue hover:underline">← Back to blog</a>
+  </div>
+</BaseLayout>
