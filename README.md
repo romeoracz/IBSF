@@ -15,10 +15,11 @@ npm run preview
 
 Edit **`src/site.config.ts`** before going live:
 
-- **NAP** (Name, Address, Phone): Must match your Google Business Profile and directory listings exactly.
+- **NAP** (Name, Address, Phone): Set to match your Google Business Profile exactly. Address is **15 Rockstone Pl, Southampton SO15 2EP**; `address.full` must match GBP and directory listings.
+- **buildingName**: "Director General's House" is used in narrative copy (e.g. About) only—not in NAP, so it doesn’t conflict with GBP.
 - **phone**, **email**, **whatsapp**, **bookingUrl**: Contact and booking links.
 - **formEndpoint**: Formspree or Netlify Forms endpoint for the contact and lead-magnet forms.
-- **mapEmbedUrl**: Google Maps embed URL for the contact page.
+- **mapEmbedUrl**: Points to 15 Rockstone Pl, Southampton SO15 2EP. Paste the embed from Google Maps (Share > Embed) for the exact pin.
 
 ## Structure
 

@@ -10,25 +10,30 @@ export const siteConfig = {
   description:
     'Independent damp surveys, indoor air quality testing and building forensics. Southampton, Winchester & London.',
 
-  /** NAP – keep identical across site, GBP and directories */
+  /** NAP – keep identical to Google Business Profile (15 Rockstone Pl, Southampton SO15 2EP) */
   address: {
-    line1: 'Southampton',
-    line2: 'Hampshire',
-    full: 'Southampton, Hampshire',
+    streetAddress: '15 Rockstone Pl',
+    addressLocality: 'Southampton',
+    postalCode: 'SO15 2EP',
+    addressRegion: 'Hampshire',
+    /** Single-line address for NAP; must match GBP exactly */
+    full: '15 Rockstone Pl, Southampton SO15 2EP',
   },
-  phone: '+44 1234 567890',
+  /** Building name (not in GBP NAP); use in narrative copy only for local authority */
+  buildingName: "Director General's House",
+  phone: '+44 7555 809800',
   email: 'enquiries@ibfs-forensics.co.uk',
 
   /** Contact */
-  whatsapp: 'https://wa.me/441234567890',
+  whatsapp: 'https://wa.me/447555809800',
   bookingUrl: 'https://calendly.com/ibfs-forensics',
 
   /** Form – use Formspree or Netlify form endpoint */
   formEndpoint: 'https://formspree.io/f/xxxxxxxx',
 
-  /** Google Map embed – replace with your place ID or coordinates */
+  /** Google Map embed – 15 Rockstone Pl, Southampton SO15 2EP (paste Share > Embed from Google Maps for exact pin) */
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39856.0!2d-1.4!3d50.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDU0JzAwLjAiTiAxwrAyNCcwMC4wIlc!5e0!3m2!1sen!2suk!4v1',
+    'https://www.google.com/maps?q=15+Rockstone+Place,+Southampton+SO15+2EP&output=embed',
 
   /** Areas served (for schema and copy) */
   areas: [

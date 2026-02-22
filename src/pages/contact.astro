@@ -89,8 +89,12 @@ import Icon from '../components/Icon.astro';
     </div>
 
     <section class="mt-12" aria-labelledby="map-heading">
-      <h2 id="map-heading" class="text-xl font-semibold text-gray-900">Service area</h2>
-      <p class="mt-1 text-gray-600">We serve Southampton, Winchester, London and the South East.</p>
+      <h2 id="map-heading" class="text-xl font-semibold text-gray-900">Our address & service area</h2>
+      <p class="mt-1 text-gray-700">
+        <strong>{siteConfig.name}</strong><br />
+        {siteConfig.address.full}<br />
+        We serve Southampton, Winchester, London and the South East.
+      </p>
       <div class="mt-4 aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
         <iframe
           src={siteConfig.mapEmbedUrl}

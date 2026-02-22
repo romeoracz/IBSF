@@ -17,8 +17,10 @@ const localBusinessSchema = {
   email: siteConfig.email,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: siteConfig.address.line1,
-    addressRegion: siteConfig.address.line2,
+    streetAddress: siteConfig.address.streetAddress,
+    addressLocality: siteConfig.address.addressLocality,
+    postalCode: siteConfig.address.postalCode,
+    addressRegion: siteConfig.address.addressRegion,
   },
   areaServed: siteConfig.areas.map((a) => ({ '@type': 'City', name: a })),
   url: siteConfig.url,
