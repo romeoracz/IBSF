@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../site.config';
+import { forensicServices } from '../../data/forensicServices';
+
+const metaTitle = 'Forensic Building Investigation Services | Independent Building Science and Forensics';
+const metaDescription = 'Independent forensic building investigation services: damp survey, water ingress investigation, ventilation audit, indoor air quality testing, building pathology, insurance dispute reports and expert witness. Southampton, Winchester & London.';
+
+const imageMap: Record<string, string> = {
+  'damp-moisture-forensics': '/images/moisture-mapping-instrument.jpg',
+  'water-ingress-leak-causation': '/images/hero-thermal-investigation.jpg',
+  'condensation-ventilation-failure': '/images/moisture-map-report.jpg',
+  'indoor-air-quality-health': '/images/forensic-instruments-flatlay.jpg',
+  'building-pathology-material-failure': '/images/moisture-map-report.jpg',
+  'insurance-dispute-reports': '/images/forensic-instruments-flatlay.jpg',
+  'expert-witness-litigation': '/images/hero-thermal-investigation.jpg',
+};
+---
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <section class="border-b border-gray-200 bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl lg:text-5xl">
+        Forensic building investigation services
+      </h1>
+      <p class="mt-4 max-w-3xl text-lg text-navy-muted leading-relaxed">
+        Independent Building Science and Forensics (IBSF) delivers instrument-led forensic investigations across seven specialist disciplines. Every investigation is independent, data-logged and structured for disputes, insurance and litigation. We serve Southampton, Winchester, London and the South East.
+      </p>
+      <p class="mt-3 text-navy-muted">
+        Independent damp survey. Water ingress investigation. Ventilation audit. Indoor air quality testing. Building pathology report. Insurance dispute report. Expert witness report. All instrument-verified. All legally defensible.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <ul class="grid gap-8 sm:grid-cols-2">
+        {forensicServices.map((s) => (
+          <li>
+            <a href={s.href} class="group block overflow-hidden rounded-lg border border-gray-200 bg-white no-underline transition hover:border-navy hover:shadow-lg">
+              <div class="aspect-[16/9] overflow-hidden bg-gray-100">
+                <img src={imageMap[s.slug] || '/images/hero-thermal-investigation.jpg'} alt={s.title + ' – IBSF forensic building investigation'} width="760" height="428" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy" />
+              </div>
+              <div class="p-6">
+                <h2 class="text-lg font-semibold text-navy">{s.title}</h2>
+                <p class="mt-2 text-sm text-navy-muted">{s.shortDescription}</p>
+                <span class="mt-3 inline-block text-sm font-medium text-primary">View investigation details →</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-gray-200 bg-gray-50 py-12 sm:py-16">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <h2 class="font-serif text-2xl font-bold text-navy sm:text-3xl">Why instruct IBSF?</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <h3 class="font-semibold text-navy">Independent</h3>
+          <p class="mt-1 text-sm text-navy-muted">Non-remedial consultancy. No ties to contractors, treatment companies or product suppliers.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <h3 class="font-semibold text-navy">Instrument-led</h3>
+          <p class="mt-1 text-sm text-navy-muted">FLIR thermal imaging, Protimeter moisture mapping, hygrothermal logging, CO₂ and VOC monitoring.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <h3 class="font-semibold text-navy">Legally defensible</h3>
+          <p class="mt-1 text-sm text-navy-muted">Reports structured for solicitors, insurers and the courts. Clear causation analysis and data integrity.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <h3 class="font-semibold text-navy">PhD-level expertise</h3>
+          <p class="mt-1 text-sm text-navy-muted">Scientific methodology underpinned by doctoral-level research and continuing professional development.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <h3 class="font-semibold text-navy">Professional indemnity</h3>
+          <p class="mt-1 text-sm text-navy-muted">Fully insured with professional indemnity cover for the work we undertake.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <h3 class="font-semibold text-navy">Three cities</h3>
+          <p class="mt-1 text-sm text-navy-muted">Southampton, Winchester, London and the wider South East. Including Haringey, Lambeth, Islington, Camden and Southwark.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy py-14 sm:py-18">
+    <div class="mx-auto max-w-6xl px-4 text-center sm:px-6">
+      <h2 class="font-serif text-2xl font-bold text-white sm:text-3xl">Commission a forensic investigation</h2>
+      <p class="mt-2 text-gray-300">Request an initial case review. We respond to serious enquiries promptly.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="inline-flex rounded bg-white px-6 py-3 font-semibold text-navy no-underline hover:bg-gray-100">Commission Investigation</a>
+        <a href={siteConfig.whatsapp} target="_blank" rel="noopener" class="inline-flex rounded border-2 border-white px-6 py-3 font-semibold text-white no-underline hover:bg-white hover:text-navy">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
