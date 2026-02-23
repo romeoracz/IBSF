@@ -3,9 +3,9 @@
  * Premium forensic consultancy – keep NAP identical to Google Business Profile.
  */
 export const siteConfig = {
-  name: 'Independent Building Science & Forensics',
-  brandHeadline: 'Independent Building Forensics',
-  shortName: 'IBFS',
+  name: 'Independent Building Science and Forensics',
+  brandHeadline: 'Independent Building Science and Forensics',
+  shortName: 'IBSF',
   tagline: 'Evidence That Stands Up in Court',
   url: 'https://www.independentbuildingforensics.co.uk',
   description:
@@ -23,11 +23,11 @@ export const siteConfig = {
   /** Building name (not in GBP NAP); use in narrative copy only for local authority */
   buildingName: "Director General's House",
   phone: '+44 7555 809800',
-  email: 'enquiries@ibfs-forensics.co.uk',
+  email: 'enquiries@independentbuildingforensics.co.uk',
 
   /** Contact */
   whatsapp: 'https://wa.me/447555809800',
-  bookingUrl: 'https://calendly.com/ibfs-forensics',
+  bookingUrl: 'https://calendly.com/ibsf-forensics',
 
   /** Form – use Formspree or Netlify form endpoint */
   formEndpoint: 'https://formspree.io/f/xxxxxxxx',

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+<BaseLayout
+  title="Independent Building Expert London | Forensic Building Science | IBSF"
+  description="Independent building expert London. Forensic damp investigation, water ingress investigation, building pathology report, expert witness and insurance dispute reports. IBSF."
+>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      Independent building expert London
+    </h1>
+    <p class="mt-4 text-lg text-navy-muted leading-relaxed">
+      Independent Building Science and Forensics is an <strong>independent building expert London</strong> consultancy providing forensic-level investigations into building defects, damp, moisture, water ingress, ventilation failure and material degradation. We serve solicitors, insurers, developers and high-end residential clients across London and the South East with expert building reports that stand up in court.
+    </p>
+    <h2 class="mt-10 text-xl font-semibold text-navy">Forensic services in London</h2>
+    <ul class="mt-2 list-disc list-inside space-y-1 text-navy-muted">
+      <li><a href="/services/damp-moisture-forensics" class="text-primary hover:underline">Forensic damp investigation London</a></li>
+      <li><a href="/services/water-ingress-leak-causation" class="text-primary hover:underline">Water ingress investigation London</a></li>
+      <li><a href="/services/indoor-air-quality-health" class="text-primary hover:underline">Indoor air quality testing London</a></li>
+      <li><a href="/services/building-pathology-material-failure" class="text-primary hover:underline">Building pathology report London</a></li>
+      <li><a href="/services/insurance-dispute-reports" class="text-primary hover:underline">Insurance dispute building inspection London</a></li>
+      <li><a href="/services/expert-witness-litigation" class="text-primary hover:underline">Expert witness London</a></li>
+    </ul>
+    <h2 class="mt-10 text-xl font-semibold text-navy">London borough coverage</h2>
+    <p class="mt-2 text-navy-muted">We cover all London boroughs including Haringey, Lambeth, Islington, Camden, Southwark, Hertfordshire and Kent. Damp survey Haringey, damp survey Camden, damp survey Southwark, building inspectors Haringey, building inspectors Lambeth, building inspectors Islington.</p>
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded bg-navy px-6 py-3 font-semibold text-white no-underline hover:bg-navy-light">Commission investigation</a>
+      <a href="/contact" class="rounded border-2 border-navy px-6 py-3 font-semibold text-navy no-underline hover:bg-navy hover:text-white">Request case review</a>
+    </section>
+    <p class="mt-8 border-t border-gray-200 pt-6 text-sm text-navy-muted"><strong>NAP:</strong> {siteConfig.name}, {siteConfig.address.full}. Tel: {siteConfig.phone}. Email: {siteConfig.email}.</p>
+  </article>
+</BaseLayout>

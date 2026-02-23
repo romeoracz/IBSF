@@ -1,11 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
+
+const lbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: siteConfig.name,
+  alternateName: 'IBSF',
+  description: 'Independent damp survey Southampton. Forensic building investigations, moisture mapping, water ingress investigation and ventilation audit in Southampton and Hampshire.',
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  url: siteConfig.url + '/southampton',
+  address: { '@type': 'PostalAddress', streetAddress: siteConfig.address.streetAddress, addressLocality: 'Southampton', postalCode: siteConfig.address.postalCode, addressRegion: 'Hampshire', addressCountry: 'GB' },
+  geo: { '@type': 'GeoCoordinates', latitude: 50.9147, longitude: -1.4032 },
+  areaServed: { '@type': 'City', name: 'Southampton' },
+  image: siteConfig.url + '/images/hero-thermal-investigation.jpg',
+  priceRange: '$$$$',
+};
 ---
 <BaseLayout
-  title="Forensic Building Investigations in Southampton | Independent Building Forensics"
+  title="Forensic Building Investigations in Southampton | Independent Building Science and Forensics"
   description="Independent forensic building investigations and damp survey Southampton. Instrument-led damp, moisture, water ingress and ventilation reports. Hampshire & South East."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(lbSchema)} />
   <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
     <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
       Forensic building investigations in Southampton
@@ -16,6 +33,9 @@ import { siteConfig } from '../site.config';
     <p class="mt-4 text-navy-muted leading-relaxed">
       Southampton’s mix of period and modern stock presents typical forensic questions—rising damp versus penetrating damp, condensation after retrofit, and moisture mapping for insurance or developer disputes. We conduct independent damp survey Southampton and forensic investigations with no remedial bias. Damp survey Southampton and Hampshire: causation is isolated using data, not opinion.
     </p>
+    <div class="mt-8">
+      <img src="/images/hero-thermal-investigation.jpg" alt="Independent forensic building investigation in Southampton – thermal imaging of a damp wall" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+    </div>
     <section class="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6">
       <h2 class="text-lg font-semibold text-navy">Services in Southampton</h2>
       <p class="mt-2 text-sm text-navy-muted">Damp & moisture forensics, water ingress, condensation & ventilation failure, indoor air quality, building pathology, insurance & dispute reports, expert witness.</p>

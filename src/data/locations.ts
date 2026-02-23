@@ -23,7 +23,7 @@ export const locations: LocationItem[] = [
   {
     slug: 'winchester',
     name: 'Winchester',
-    metaTitle: 'Building Forensics & Damp Surveys in Winchester | IBFS',
+    metaTitle: 'Building Forensics & Damp Surveys in Winchester | IBSF',
     metaDescription: 'Independent damp survey Winchester, condensation expert and building forensics in Winchester. Ventilation audit and odour investigation near me.',
     heading: 'Building forensics and damp surveys in Winchester',
     intro: 'We serve Winchester and the surrounding area with independent damp surveys, condensation surveys, ventilation audits and building forensics. Older housing stock in Winchester often presents timber decay, penetrating damp and condensation issues that benefit from impartial diagnostics.',
@@ -43,7 +43,7 @@ export const locations: LocationItem[] = [
   {
     slug: 'haringey',
     name: 'Haringey',
-    metaTitle: 'Damp Survey & Building Inspectors Haringey | IBFS London',
+    metaTitle: 'Damp Survey & Building Inspectors Haringey | IBSF London',
     metaDescription: 'Independent damp survey Haringey, building inspectors Haringey. Damp and indoor air quality diagnostics in N8, N15, N17 and across Haringey.',
     heading: 'Damp and building diagnostics in Haringey',
     intro: 'Independent Building Science & Forensics serves Haringey with damp surveys, building inspection and indoor air quality testing. We work across Haringey’s mix of Victorian and Edwardian housing and newer developments.',
@@ -53,7 +53,7 @@ export const locations: LocationItem[] = [
   {
     slug: 'lambeth',
     name: 'Lambeth',
-    metaTitle: 'Damp Survey & Building Inspectors Lambeth | IBFS London',
+    metaTitle: 'Damp Survey & Building Inspectors Lambeth | IBSF London',
     metaDescription: 'Independent damp survey Lambeth, building inspectors Lambeth. Damp, mould and air quality diagnostics in SW2, SE1, SE11 and across Lambeth.',
     heading: 'Damp and building forensics in Lambeth',
     intro: 'We provide independent damp surveys, building inspection and indoor air quality testing in Lambeth. From period conversions to modern flats, we deliver evidence-based diagnostics for buyers, landlords and residents.',
@@ -63,7 +63,7 @@ export const locations: LocationItem[] = [
   {
     slug: 'camden',
     name: 'Camden',
-    metaTitle: 'Damp Survey & Building Inspectors Camden | IBFS London',
+    metaTitle: 'Damp Survey & Building Inspectors Camden | IBSF London',
     metaDescription: 'Independent damp survey Camden, building inspectors and IAQ testing in Camden. NW1, NW3, WC1 and across Camden.',
     heading: 'Building diagnostics and damp surveys in Camden',
     intro: 'Independent Building Science & Forensics offers damp survey Camden, building inspection and indoor air quality testing across Camden. We serve homeowners, buyers and landlords with unbiased building forensics.',
@@ -73,7 +73,7 @@ export const locations: LocationItem[] = [
   {
     slug: 'islington',
     name: 'Islington',
-    metaTitle: 'Damp Survey & Building Inspectors Islington | IBFS London',
+    metaTitle: 'Damp Survey & Building Inspectors Islington | IBSF London',
     metaDescription: 'Independent damp survey Islington, building inspectors Islington. Damp, mould and ventilation diagnostics in N1, EC1 and across Islington.',
     heading: 'Damp and indoor air quality surveys in Islington',
     intro: 'We deliver independent damp surveys, building inspection and indoor air quality testing in Islington. Our building inspectors Islington services are fully impartial and evidence-based.',

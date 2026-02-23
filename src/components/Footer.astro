@@ -5,31 +5,46 @@ import { siteConfig } from '../site.config';
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <div>
-        <p class="font-semibold">{siteConfig.name}</p>
-        <p class="mt-1 text-sm text-gray-300">{siteConfig.tagline}</p>
+        <p class="text-lg font-bold"><span class="text-primary">{siteConfig.shortName}</span></p>
+        <p class="mt-1 text-sm text-gray-300">{siteConfig.name}</p>
+        <p class="mt-1 text-sm text-gray-400">{siteConfig.tagline}</p>
       </div>
       <div>
         <p class="text-sm font-medium text-gray-300">Contact (NAP)</p>
         <p class="mt-1 text-sm">{siteConfig.address.full}</p>
         <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} class="mt-1 block text-sm text-primary-muted hover:text-primary-light">{siteConfig.phone}</a>
         <a href={`mailto:${siteConfig.email}`} class="mt-1 block text-sm text-primary-muted hover:text-primary-light">{siteConfig.email}</a>
+        <a href={siteConfig.whatsapp} class="mt-1 block text-sm text-primary-muted hover:text-primary-light" target="_blank" rel="noopener">WhatsApp</a>
       </div>
       <div>
         <p class="text-sm font-medium text-gray-300">Services</p>
         <ul class="mt-1 list-none space-y-1 text-sm">
           <li><a href="/services/damp-moisture-forensics" class="text-gray-300 hover:text-white">Damp & moisture forensics</a></li>
           <li><a href="/services/water-ingress-leak-causation" class="text-gray-300 hover:text-white">Water ingress</a></li>
+          <li><a href="/services/condensation-ventilation-failure" class="text-gray-300 hover:text-white">Condensation & ventilation</a></li>
+          <li><a href="/services/indoor-air-quality-health" class="text-gray-300 hover:text-white">Indoor air quality</a></li>
           <li><a href="/services/insurance-dispute-reports" class="text-gray-300 hover:text-white">Insurance & disputes</a></li>
           <li><a href="/services/expert-witness-litigation" class="text-gray-300 hover:text-white">Expert witness</a></li>
         </ul>
       </div>
       <div>
-        <p class="text-sm font-medium text-gray-300">Areas</p>
-        <p class="mt-1 text-sm text-gray-300">Southampton, Winchester, London, Hampshire & South East</p>
+        <p class="text-sm font-medium text-gray-300">Locations</p>
+        <ul class="mt-1 list-none space-y-1 text-sm">
+          <li><a href="/southampton" class="text-gray-300 hover:text-white">Southampton</a></li>
+          <li><a href="/winchester" class="text-gray-300 hover:text-white">Winchester</a></li>
+          <li><a href="/london" class="text-gray-300 hover:text-white">London</a></li>
+        </ul>
+        <p class="mt-2 text-sm font-medium text-gray-300">Quick links</p>
+        <ul class="mt-1 list-none space-y-1 text-sm">
+          <li><a href="/damp-survey-near-me" class="text-gray-300 hover:text-white">Damp survey near me</a></li>
+          <li><a href="/building-inspection-near-me" class="text-gray-300 hover:text-white">Building inspection near me</a></li>
+          <li><a href="/independent-building-expert-london" class="text-gray-300 hover:text-white">Building expert London</a></li>
+          <li><a href="/mould-inspection-london" class="text-gray-300 hover:text-white">Mould inspection London</a></li>
+        </ul>
       </div>
     </div>
     <p class="mt-8 border-t border-gray-600 pt-8 text-center text-sm text-gray-400">
-      © {new Date().getFullYear()} {siteConfig.name}. Independent forensic building consultancy.
+      © {new Date().getFullYear()} {siteConfig.name}. Independent forensic building consultancy – Southampton, Winchester & London.
     </p>
   </div>
 </footer>

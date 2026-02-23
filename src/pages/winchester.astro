@@ -1,11 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
+
+const lbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: siteConfig.name,
+  alternateName: 'IBSF',
+  description: 'Independent damp survey Winchester. Forensic building investigations, condensation survey, ventilation audit and moisture mapping in Winchester and Hampshire.',
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  url: siteConfig.url + '/winchester',
+  address: { '@type': 'PostalAddress', streetAddress: siteConfig.address.streetAddress, addressLocality: 'Southampton', postalCode: siteConfig.address.postalCode, addressRegion: 'Hampshire', addressCountry: 'GB' },
+  geo: { '@type': 'GeoCoordinates', latitude: 51.0632, longitude: -1.3080 },
+  areaServed: { '@type': 'City', name: 'Winchester' },
+  image: siteConfig.url + '/images/moisture-map-report.jpg',
+  priceRange: '$$$$',
+};
 ---
 <BaseLayout
-  title="Forensic Building Investigations in Winchester | Independent Building Forensics"
+  title="Forensic Building Investigations in Winchester | Independent Building Science and Forensics"
   description="Forensic building investigations and ventilation audit Winchester. Independent damp survey, condensation survey Hampshire. Instrument-led reports for disputes and litigation."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(lbSchema)} />
   <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
     <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
       Forensic building investigations in Winchester
@@ -16,6 +33,9 @@ import { siteConfig } from '../site.config';
     <p class="mt-4 text-navy-muted leading-relaxed">
       Winchester’s historic and period housing often involves condensation after retrofit, penetrating damp and timber decay. We provide ventilation audit Winchester and independent damp survey work with full instrument-led diagnostics. No remedial tie; causation is documented for dispute resolution and expert witness instruction.
     </p>
+    <div class="mt-8">
+      <img src="/images/moisture-map-report.jpg" alt="Moisture map from IBSF forensic report – ventilation audit Winchester" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+    </div>
     <section class="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6">
       <h2 class="text-lg font-semibold text-navy">Services in Winchester</h2>
       <p class="mt-2 text-sm text-navy-muted">Damp & moisture forensics, water ingress, condensation & ventilation failure, indoor air quality, building pathology, insurance & dispute reports, expert witness.</p>

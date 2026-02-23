@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+<BaseLayout
+  title="Building Inspection Near Me | Independent Building Inspectors Southampton, Winchester & London"
+  description="Independent building inspection near me. Forensic building inspectors in Southampton, Winchester and London. Structural survey, pre-purchase inspection, building defect investigation. IBSF."
+>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      Building inspection near me: independent forensic inspectors
+    </h1>
+    <p class="mt-4 text-lg text-navy-muted leading-relaxed">
+      Searching for a <strong>building inspection near me</strong>? Independent Building Science and Forensics provides forensic-level building inspections across Southampton, Winchester and London. Unlike standard surveys, our inspections use instrument-led diagnostics to identify defects, moisture issues, ventilation failure and material degradation. Reports are suitable for pre-purchase decisions, disputes and insurance.
+    </p>
+    <h2 class="mt-10 text-xl font-semibold text-navy">Building inspectors services London</h2>
+    <p class="mt-2 text-navy-muted">Our <strong>building inspectors services London</strong> cover structural survey, property inspection, homebuyers survey, commercial building inspector needs and building compliance reports across all London boroughs.</p>
+    <h2 class="mt-8 text-xl font-semibold text-navy">Building inspectors near me Southampton</h2>
+    <p class="mt-2 text-navy-muted"><strong>Building inspectors near me Southampton</strong> and Hampshire. We are based at {siteConfig.address.full} and provide emergency building inspection and affordable independent building inspection services.</p>
+    <h2 class="mt-8 text-xl font-semibold text-navy">Emergency building inspection Winchester</h2>
+    <p class="mt-2 text-navy-muted"><strong>Emergency building inspection Winchester</strong> and Hampshire. Rapid response forensic inspections for urgent defect or water ingress situations.</p>
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded bg-navy px-6 py-3 font-semibold text-white no-underline hover:bg-navy-light">Commission building inspection</a>
+      <a href="/contact" class="rounded border-2 border-navy px-6 py-3 font-semibold text-navy no-underline hover:bg-navy hover:text-white">Request case review</a>
+    </section>
+    <p class="mt-8 border-t border-gray-200 pt-6 text-sm text-navy-muted"><strong>NAP:</strong> {siteConfig.name}, {siteConfig.address.full}. Tel: {siteConfig.phone}. Email: {siteConfig.email}.</p>
+  </article>
+</BaseLayout>

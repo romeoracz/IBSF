@@ -3,70 +3,107 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
 import { forensicServices } from '../data/forensicServices';
 
-const metaTitle = `${siteConfig.brandHeadline} | ${siteConfig.tagline} – Southampton, Winchester & London`;
+const metaTitle = `Independent Building Science and Forensics | Forensic Building Investigations – Southampton, Winchester & London`;
 const metaDescription =
-  'Independent forensic building investigations. Instrument-led damp, moisture, ventilation and water ingress reports for disputes, insurance and litigation. Southampton, Winchester & London.';
+  'Independent forensic building investigations. Instrument-led damp survey, moisture mapping, water ingress investigation, ventilation audit and building pathology reports for disputes, insurance and litigation. Southampton, Winchester & London.';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'ProfessionalService',
+  '@id': siteConfig.url,
   name: siteConfig.name,
+  alternateName: 'IBSF',
   description: siteConfig.description,
   telephone: siteConfig.phone,
   email: siteConfig.email,
+  url: siteConfig.url,
   address: {
     '@type': 'PostalAddress',
     streetAddress: siteConfig.address.streetAddress,
     addressLocality: siteConfig.address.addressLocality,
     postalCode: siteConfig.address.postalCode,
     addressRegion: siteConfig.address.addressRegion,
+    addressCountry: 'GB',
   },
-  areaServed: siteConfig.areas.map((a) => ({ '@type': 'City', name: a })),
-  url: siteConfig.url,
+  geo: { '@type': 'GeoCoordinates', latitude: 50.9147, longitude: -1.4032 },
+  areaServed: [
+    ...siteConfig.areas.map((a) => ({ '@type': 'City', name: a })),
+    ...siteConfig.boroughs.map((b) => ({ '@type': 'City', name: b })),
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Forensic Building Investigations',
+    itemListElement: forensicServices.map((s, i) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: s.title, description: s.shortDescription, url: siteConfig.url + s.href },
+    })),
+  },
+  image: siteConfig.url + '/images/hero-thermal-investigation.jpg',
+  priceRange: '$$$$',
+  openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '18:00' },
+  sameAs: [],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is an independent damp survey?', acceptedAnswer: { '@type': 'Answer', text: 'An independent damp survey is a forensic-level investigation into moisture and damp in a property, conducted by an independent consultant with no ties to remediation contractors. It uses instrument-led diagnostics—moisture mapping, thermal imaging and environmental data logging—to identify the cause of damp (rising, penetrating or condensation) and provide a defensible report suitable for disputes, insurance and litigation.' } },
+    { '@type': 'Question', name: 'How much does a forensic building investigation cost?', acceptedAnswer: { '@type': 'Answer', text: 'Our forensic building investigations are commissioned for complex or high-value cases. Costs depend on the scope, property size and complexity of the issue. We provide a clear fee proposal after an initial case review. Contact us to discuss your requirements.' } },
+    { '@type': 'Question', name: 'Do you provide expert witness reports?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We provide expert building reports suitable for use in court proceedings, insurance disputes and landlord-tenant disputes. Our reports follow a transparent, repeatable scientific methodology and present clear causation analysis.' } },
+    { '@type': 'Question', name: 'What areas do you cover?', acceptedAnswer: { '@type': 'Answer', text: 'We serve Southampton, Winchester, London, Hampshire and the South East of England. This includes London boroughs such as Haringey, Lambeth, Islington, Camden and Southwark.' } },
+    { '@type': 'Question', name: 'What instruments do you use?', acceptedAnswer: { '@type': 'Answer', text: 'We use FLIR calibrated thermal imaging cameras, Protimeter moisture meters, hygrothermal data loggers, CO₂ and ventilation monitors, VOC detection equipment, and psychrometric analysis tools. All measurements are recorded, repeatable and data-logged.' } },
+  ],
 };
 ---
 <BaseLayout title={metaTitle} description={metaDescription}>
   <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <!-- Hero: two-column, left copy + right authority panel -->
+  <!-- Hero -->
   <section class="border-b border-gray-200 bg-white py-16 sm:py-24 lg:py-28">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="grid gap-12 lg:grid-cols-[1fr,340px] lg:gap-16">
+      <div class="grid gap-12 lg:grid-cols-[1fr,380px] lg:gap-16">
         <div>
           <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl lg:text-5xl">
-            Independent Building Forensics.
+            Independent Building Science and Forensics.
           </h1>
           <p class="mt-3 font-serif text-2xl font-semibold text-navy sm:text-3xl">
-            Evidence That Stands Up in Court.
+            Evidence that stands up in court.
           </p>
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-navy-muted">
-            We conduct forensic-level investigations into damp, moisture, ventilation failure, water ingress, material degradation and building-related health concerns.
+            We conduct forensic-level investigations into damp, moisture failure, ventilation deficiency, water ingress, material degradation and building-related health complaints. Every investigation is instrument-verified, data-logged and independent of remedial contractors.
           </p>
           <p class="mt-3 text-lg font-medium text-navy">
             Independent. Instrument-verified. Legally defensible.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
-            <a href="/contact" class="inline-flex rounded bg-navy px-6 py-3 text-base font-semibold text-white no-underline hover:bg-navy-light focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2">
+            <a href="/contact" class="inline-flex rounded bg-navy px-6 py-3 text-base font-semibold text-white no-underline hover:bg-navy-light">
               Commission a Forensic Investigation
             </a>
-            <a href="/contact" class="inline-flex rounded border-2 border-navy px-6 py-3 text-base font-semibold text-navy no-underline hover:bg-navy hover:text-white focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2">
+            <a href="/contact" class="inline-flex rounded border-2 border-navy px-6 py-3 text-base font-semibold text-navy no-underline hover:bg-navy hover:text-white">
               Request Initial Case Review
             </a>
           </div>
         </div>
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 lg:p-8">
-          <h2 class="text-lg font-semibold text-navy">Why clients instruct us</h2>
-          <ul class="mt-4 list-none space-y-3 text-sm text-navy-muted">
-            <li class="flex gap-2"><span class="text-primary">•</span> Independent non-remedial consultancy</li>
-            <li class="flex gap-2"><span class="text-primary">•</span> Instrument-led diagnostics</li>
-            <li class="flex gap-2"><span class="text-primary">•</span> Data-logged environmental analysis</li>
-            <li class="flex gap-2"><span class="text-primary">•</span> Reports suitable for insurers & legal proceedings</li>
-            <li class="flex gap-2"><span class="text-primary">•</span> Clear causation analysis</li>
-          </ul>
+        <div class="space-y-6">
+          <div class="overflow-hidden rounded-lg">
+            <img src="/images/hero-thermal-investigation.jpg" alt="Forensic building investigator using FLIR thermal imaging camera to map moisture in a Southampton property" width="760" height="428" class="w-full" loading="eager" />
+          </div>
+          <div class="rounded-lg border border-gray-200 bg-gray-50 p-6">
+            <h2 class="text-lg font-semibold text-navy">Why clients instruct us</h2>
+            <ul class="mt-3 list-none space-y-2 text-sm text-navy-muted">
+              <li class="flex gap-2"><span class="text-primary">—</span> Independent non-remedial consultancy</li>
+              <li class="flex gap-2"><span class="text-primary">—</span> PhD-level scientific expertise</li>
+              <li class="flex gap-2"><span class="text-primary">—</span> Instrument-led, data-logged diagnostics</li>
+              <li class="flex gap-2"><span class="text-primary">—</span> Reports suitable for insurers, solicitors & courts</li>
+              <li class="flex gap-2"><span class="text-primary">—</span> Clear causation and liability analysis</li>
+              <li class="flex gap-2"><span class="text-primary">—</span> Professional indemnity insured</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Credibility strip -->
     <div class="mx-auto mt-14 max-w-6xl px-4 sm:px-6">
       <div class="flex flex-wrap items-center justify-center gap-8 border-t border-gray-200 pt-10 text-center text-sm font-medium text-navy-muted">
         <span>PhD-level scientific expertise</span>
@@ -77,49 +114,63 @@ const localBusinessSchema = {
     </div>
   </section>
 
-  <!-- Instrument-led section -->
+  <!-- Instrument-led section with image -->
   <section class="border-b border-gray-200 bg-gray-50 py-16 sm:py-20" aria-labelledby="instruments-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="instruments-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
-        Instrument-led scientific investigation
-      </h2>
-      <p class="mt-4 max-w-3xl text-navy-muted leading-relaxed">
-        We do not rely on visual assessment alone. We quantify moisture migration, air exchange and environmental loading. We isolate causation using recorded environmental data.
-      </p>
-      <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Thermal imaging (FLIR calibrated systems)</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Protimeter moisture mapping</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Hygrothermal data logging</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">CO₂ & ventilation monitoring</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">VOC detection & air sampling</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Surface & core moisture measurement</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Psychrometric analysis & dew point modelling</li>
-        <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Building envelope thermal bridging analysis</li>
-      </ul>
-      <p class="mt-6 text-sm font-medium text-navy">
-        Evidence. Quantification. Causation. Data integrity. Repeatable measurements.
-      </p>
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 id="instruments-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
+            Instrument-led scientific investigation
+          </h2>
+          <p class="mt-4 text-navy-muted leading-relaxed">
+            We do not rely on visual assessment alone. We quantify moisture migration, air exchange and environmental loading using calibrated scientific instruments. Causation is isolated through recorded, repeatable environmental data—not opinion.
+          </p>
+          <ul class="mt-6 grid gap-2 sm:grid-cols-2">
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Thermal imaging (FLIR calibrated)</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Protimeter moisture mapping</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Hygrothermal data logging</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">CO₂ & ventilation monitoring</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">VOC detection & air sampling</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Surface & core moisture measurement</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Psychrometric & dew point modelling</li>
+            <li class="rounded border border-gray-200 bg-white px-4 py-3 text-sm text-navy">Building envelope thermal bridging</li>
+          </ul>
+          <p class="mt-4 text-sm font-medium text-navy">
+            Evidence. Quantification. Causation. Data integrity.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <img src="/images/moisture-mapping-instrument.jpg" alt="Protimeter moisture meter measuring damp in a wall during an independent damp survey in Southampton" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+          <img src="/images/forensic-instruments-flatlay.jpg" alt="Forensic building investigation instruments including thermal camera, moisture meter, data loggers and IBSF report" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- What our reports deliver -->
+  <!-- Reports section with image -->
   <section class="border-b border-gray-200 py-16 sm:py-20" aria-labelledby="reports-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="reports-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
-        What our reports deliver
-      </h2>
-      <p class="mt-4 max-w-3xl text-navy-muted leading-relaxed">
-        Designed for dispute resolution, insurance clarity, developer accountability and legal robustness.
-      </p>
-      <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Causation analysis</li>
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Photographic & thermal evidence</li>
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Moisture maps</li>
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Environmental data logs</li>
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Ventilation performance analysis</li>
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Liability commentary where appropriate</li>
-        <li class="border-l-4 border-primary bg-white py-2 pl-4 text-navy">Clear remedial guidance</li>
-      </ul>
+      <div class="grid gap-10 lg:grid-cols-[1fr,400px]">
+        <div>
+          <h2 id="reports-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
+            What our reports deliver
+          </h2>
+          <p class="mt-4 text-navy-muted leading-relaxed">
+            Designed for dispute resolution, insurance clarity, developer accountability and legal robustness. Every report is structured for use by solicitors, insurers and the courts.
+          </p>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+            <li class="border-l-4 border-primary bg-gray-50 py-2 pl-4 text-navy">Causation analysis</li>
+            <li class="border-l-4 border-primary bg-gray-50 py-2 pl-4 text-navy">Photographic & thermal evidence</li>
+            <li class="border-l-4 border-primary bg-gray-50 py-2 pl-4 text-navy">Moisture maps & data logs</li>
+            <li class="border-l-4 border-primary bg-gray-50 py-2 pl-4 text-navy">Ventilation performance analysis</li>
+            <li class="border-l-4 border-primary bg-gray-50 py-2 pl-4 text-navy">Liability commentary</li>
+            <li class="border-l-4 border-primary bg-gray-50 py-2 pl-4 text-navy">Clear remedial guidance</li>
+          </ul>
+        </div>
+        <div>
+          <img src="/images/moisture-map-report.jpg" alt="Moisture map from a forensic building pathology report showing moisture content across a wall cross-section" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -130,12 +181,12 @@ const localBusinessSchema = {
         Forensic investigations we conduct
       </h2>
       <p class="mt-2 text-navy-muted">
-        Independent building forensics, damp survey Southampton, damp survey Winchester, damp survey London. Forensic damp investigation and building defect investigation.
+        Independent building forensics across Southampton, Winchester and London. Damp survey, water ingress investigation, ventilation audit, building pathology and expert witness reports.
       </p>
       <ul class="mt-10 grid gap-4 sm:grid-cols-2">
         {forensicServices.map((s) => (
           <li>
-            <a href={s.href} class="block rounded-lg border border-gray-200 bg-white p-6 no-underline transition hover:border-navy hover:shadow-md focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2">
+            <a href={s.href} class="block rounded-lg border border-gray-200 bg-white p-6 no-underline transition hover:border-navy hover:shadow-md">
               <h3 class="font-semibold text-navy">{s.title}</h3>
               <p class="mt-1 text-sm text-navy-muted">{s.shortDescription}</p>
             </a>
@@ -145,7 +196,55 @@ const localBusinessSchema = {
     </div>
   </section>
 
-  <!-- Pricing psychology (no prices) -->
+  <!-- FAQ Section -->
+  <section class="border-b border-gray-200 py-16 sm:py-20" aria-labelledby="faq-heading">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <h2 id="faq-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
+        Frequently asked questions
+      </h2>
+      <dl class="mt-8 space-y-6">
+        <div>
+          <dt class="font-semibold text-navy">What is an independent damp survey?</dt>
+          <dd class="mt-1 text-navy-muted">An independent damp survey is a forensic-level investigation into moisture and damp, conducted by a consultant with no ties to remediation contractors. It uses moisture mapping, thermal imaging and environmental data logging to identify causation—rising damp, penetrating damp or condensation—and produce a defensible report for disputes, insurance or litigation.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-navy">How much does a forensic building investigation cost?</dt>
+          <dd class="mt-1 text-navy-muted">Our work is commissioned for complex or high-value cases. Costs depend on scope, property size and complexity. We provide a clear fee proposal after an initial case review. Contact us to discuss your requirements.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-navy">Do you provide expert witness reports?</dt>
+          <dd class="mt-1 text-navy-muted">Yes. We provide expert building reports suitable for court proceedings, insurance disputes and landlord-tenant disputes. Our methodology is transparent, repeatable and scientifically defensible.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-navy">What areas do you cover?</dt>
+          <dd class="mt-1 text-navy-muted">We serve Southampton, Winchester, London, Hampshire and the South East. This includes London boroughs such as Haringey, Lambeth, Islington, Camden and Southwark.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-navy">What instruments do you use?</dt>
+          <dd class="mt-1 text-navy-muted">FLIR calibrated thermal imaging, Protimeter moisture meters, hygrothermal data loggers, CO₂ and ventilation monitors, VOC detection equipment and psychrometric analysis tools. All measurements are recorded, repeatable and data-logged.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="border-b border-gray-200 bg-gray-50 py-16 sm:py-20" aria-labelledby="locations-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="locations-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
+        Forensic building investigations by location
+      </h2>
+      <p class="mt-2 text-navy-muted">
+        Independent damp survey Southampton. Damp survey Winchester. Damp survey London. Water ingress investigation London. Condensation survey Hampshire. Indoor air quality testing London. Ventilation audit Winchester. Moisture mapping London. Independent building expert London. Building defect investigation near me.
+      </p>
+      <ul class="mt-8 flex flex-wrap gap-4">
+        <li><a href="/southampton" class="rounded border border-gray-300 bg-white px-5 py-3 font-medium text-navy no-underline hover:border-navy hover:bg-navy hover:text-white">Southampton</a></li>
+        <li><a href="/winchester" class="rounded border border-gray-300 bg-white px-5 py-3 font-medium text-navy no-underline hover:border-navy hover:bg-navy hover:text-white">Winchester</a></li>
+        <li><a href="/london" class="rounded border border-gray-300 bg-white px-5 py-3 font-medium text-navy no-underline hover:border-navy hover:bg-navy hover:text-white">London</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Mid-page CTA -->
   <section class="border-b border-gray-200 py-12 sm:py-16">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <p class="text-lg text-navy-muted leading-relaxed">
@@ -157,31 +256,14 @@ const localBusinessSchema = {
     </div>
   </section>
 
-  <!-- Locations -->
-  <section class="border-b border-gray-200 bg-gray-50 py-16 sm:py-20" aria-labelledby="locations-heading">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="locations-heading" class="font-serif text-2xl font-bold text-navy sm:text-3xl">
-        Forensic building investigations by location
-      </h2>
-      <p class="mt-2 text-navy-muted">
-        Water ingress investigation London, condensation survey Hampshire, indoor air quality testing London, ventilation audit Winchester, moisture mapping London. Independent building expert London.
-      </p>
-      <ul class="mt-8 flex flex-wrap gap-4">
-        <li><a href="/southampton" class="rounded border border-gray-300 bg-white px-5 py-3 font-medium text-navy no-underline hover:border-navy hover:bg-navy hover:text-white">Southampton</a></li>
-        <li><a href="/winchester" class="rounded border border-gray-300 bg-white px-5 py-3 font-medium text-navy no-underline hover:border-navy hover:bg-navy hover:text-white">Winchester</a></li>
-        <li><a href="/london" class="rounded border border-gray-300 bg-white px-5 py-3 font-medium text-navy no-underline hover:border-navy hover:bg-navy hover:text-white">London</a></li>
-      </ul>
-    </div>
-  </section>
-
   <!-- Final CTA -->
-  <section class="bg-navy py-14 sm:py-18">
+  <section class="bg-navy py-14 sm:py-20">
     <div class="mx-auto max-w-6xl px-4 text-center sm:px-6">
       <h2 class="font-serif text-2xl font-bold text-white sm:text-3xl">
         Commission a forensic investigation
       </h2>
       <p class="mt-2 text-gray-300">
-        Request an initial case review. We respond to serious enquiries promptly.
+        Independent Building Science and Forensics. Request an initial case review. We respond to serious enquiries promptly.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a href="/contact" class="inline-flex rounded bg-white px-6 py-3 font-semibold text-navy no-underline hover:bg-gray-100">

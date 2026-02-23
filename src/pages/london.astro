@@ -1,11 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
+
+const lbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: siteConfig.name,
+  alternateName: 'IBSF',
+  description: 'Independent building expert London. Forensic damp investigation, water ingress investigation, indoor air quality testing and building pathology reports in London.',
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  url: siteConfig.url + '/london',
+  address: { '@type': 'PostalAddress', streetAddress: siteConfig.address.streetAddress, addressLocality: 'Southampton', postalCode: siteConfig.address.postalCode, addressRegion: 'Hampshire', addressCountry: 'GB' },
+  geo: { '@type': 'GeoCoordinates', latitude: 51.5074, longitude: -0.1278 },
+  areaServed: [
+    { '@type': 'City', name: 'London' },
+    ...['Haringey', 'Lambeth', 'Islington', 'Camden', 'Southwark'].map(b => ({ '@type': 'City', name: b })),
+  ],
+  image: siteConfig.url + '/images/forensic-instruments-flatlay.jpg',
+  priceRange: '$$$$',
+};
 ---
 <BaseLayout
-  title="Forensic Building Investigations in London | Independent Building Forensics"
+  title="Forensic Building Investigations in London | Independent Building Science and Forensics"
   description="Independent building expert London. Forensic damp investigation, water ingress investigation London, indoor air quality testing London. Instrument-led reports for insurance and litigation."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(lbSchema)} />
   <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
     <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
       Forensic building investigations in London
@@ -16,6 +36,9 @@ import { siteConfig } from '../site.config';
     <p class="mt-4 text-navy-muted leading-relaxed">
       London’s density of flats, basements and conversions creates recurring forensic questions—condensation, damp basement, landlord-tenant damp dispute and insurance building dispute report needs. We deliver independent evidence with no remedial bias. Building defect investigation and expert building report for solicitors and insurers.
     </p>
+    <div class="mt-8">
+      <img src="/images/forensic-instruments-flatlay.jpg" alt="IBSF forensic investigation instruments for damp survey London – thermal camera, moisture meter, data loggers" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+    </div>
     <section class="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6">
       <h2 class="text-lg font-semibold text-navy">Services in London</h2>
       <p class="mt-2 text-sm text-navy-muted">Damp & moisture forensics, water ingress, condensation & ventilation, indoor air quality, building pathology, insurance & dispute reports, expert witness & litigation support.</p>

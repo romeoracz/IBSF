@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+<BaseLayout
+  title="Independent Damp Survey Near Me | Southampton, Winchester & London | IBSF"
+  description="Looking for an independent damp survey near me? IBSF provides forensic damp investigations in Southampton, Winchester and London. Instrument-led, no remedial bias. Rising damp, penetrating damp and condensation surveys."
+>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      Independent damp survey near me
+    </h1>
+    <p class="mt-4 text-lg text-navy-muted leading-relaxed">
+      If you are searching for an <strong>independent damp survey near me</strong> in Southampton, Winchester or London, Independent Building Science and Forensics (IBSF) provides forensic-level damp investigations with no ties to remediation contractors. Our independent damp surveys use instrument-led diagnostics—moisture mapping, thermal imaging and environmental data logging—to identify the true cause of damp in your property.
+    </p>
+    <h2 class="mt-10 text-xl font-semibold text-navy">What makes our damp survey different?</h2>
+    <p class="mt-2 text-navy-muted leading-relaxed">
+      Many damp surveys are conducted by companies that also sell treatments. This creates a conflict of interest. Our <strong>independent damp survey</strong> is non-remedial: we diagnose but do not sell fixes. Every finding is backed by calibrated instruments and recorded data. Reports are suitable for insurance disputes, landlord-tenant disputes and litigation.
+    </p>
+    <h2 class="mt-10 text-xl font-semibold text-navy">Damp survey Southampton</h2>
+    <p class="mt-2 text-navy-muted">We provide <strong>damp survey Southampton</strong> and Hampshire coverage from our base at {siteConfig.address.full}. Period houses, post-war stock and modern builds all present different moisture challenges. We isolate causation using data.</p>
+    <h2 class="mt-8 text-xl font-semibold text-navy">Damp survey Winchester</h2>
+    <p class="mt-2 text-navy-muted">Our <strong>damp survey Winchester</strong> service covers historic properties prone to penetrating damp and timber decay, and modern retrofits where condensation after insulation is common.</p>
+    <h2 class="mt-8 text-xl font-semibold text-navy">Damp survey London</h2>
+    <p class="mt-2 text-navy-muted">Across London we deliver <strong>independent damp survey London</strong>, <strong>mould inspection London</strong> and <strong>condensation survey London</strong> for flats, basements and conversions. We cover Haringey, Lambeth, Islington, Camden, Southwark and beyond.</p>
+    <div class="mt-10">
+      <img src="/images/moisture-mapping-instrument.jpg" alt="Independent damp survey near me – moisture meter measuring damp in a property wall" width="760" height="428" class="w-full rounded-lg" loading="lazy" />
+    </div>
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded bg-navy px-6 py-3 font-semibold text-white no-underline hover:bg-navy-light">Commission a damp survey</a>
+      <a href="/contact" class="rounded border-2 border-navy px-6 py-3 font-semibold text-navy no-underline hover:bg-navy hover:text-white">Request case review</a>
+    </section>
+    <p class="mt-8 border-t border-gray-200 pt-6 text-sm text-navy-muted"><strong>NAP:</strong> {siteConfig.name}, {siteConfig.address.full}. Tel: {siteConfig.phone}. Email: {siteConfig.email}.</p>
+  </article>
+</BaseLayout>
