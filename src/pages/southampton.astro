@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+<BaseLayout
+  title="Forensic Building Investigations in Southampton | Independent Building Forensics"
+  description="Independent forensic building investigations and damp survey Southampton. Instrument-led damp, moisture, water ingress and ventilation reports. Hampshire & South East."
+>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      Forensic building investigations in Southampton
+    </h1>
+    <p class="mt-4 text-lg text-navy-muted leading-relaxed">
+      We provide independent building forensics and forensic damp investigation across Southampton and Hampshire. Our work is commissioned for complex or high-value cases: damp and moisture disputes, water ingress investigation, condensation survey and ventilation failure, and building defect investigation. Reports are instrument-verified and suitable for insurers, solicitors and dispute resolution.
+    </p>
+    <p class="mt-4 text-navy-muted leading-relaxed">
+      Southampton’s mix of period and modern stock presents typical forensic questions—rising damp versus penetrating damp, condensation after retrofit, and moisture mapping for insurance or developer disputes. We conduct independent damp survey Southampton and forensic investigations with no remedial bias. Damp survey Southampton and Hampshire: causation is isolated using data, not opinion.
+    </p>
+    <section class="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6">
+      <h2 class="text-lg font-semibold text-navy">Services in Southampton</h2>
+      <p class="mt-2 text-sm text-navy-muted">Damp & moisture forensics, water ingress, condensation & ventilation failure, indoor air quality, building pathology, insurance & dispute reports, expert witness.</p>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        <li><a href="/services/damp-moisture-forensics" class="text-primary hover:underline">Damp & moisture forensics</a></li>
+        <li><a href="/services/water-ingress-leak-causation" class="text-primary hover:underline">Water ingress</a></li>
+        <li><a href="/services/insurance-dispute-reports" class="text-primary hover:underline">Insurance & disputes</a></li>
+      </ul>
+    </section>
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded bg-navy px-6 py-3 font-semibold text-white no-underline hover:bg-navy-light">Commission investigation</a>
+      <a href="/contact" class="rounded border-2 border-navy px-6 py-3 font-semibold text-navy no-underline hover:bg-navy hover:text-white">Request case review</a>
+    </section>
+    <p class="mt-8 border-t border-gray-200 pt-6 text-sm text-navy-muted">
+      <strong>NAP:</strong> {siteConfig.name}, {siteConfig.address.full}. Tel: {siteConfig.phone}. Email: {siteConfig.email}.
+    </p>
+  </article>
+</BaseLayout>

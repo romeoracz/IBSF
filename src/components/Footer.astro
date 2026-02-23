@@ -1,35 +1,35 @@
 ---
 import { siteConfig } from '../site.config';
 ---
-<footer class="border-t border-gray-200 bg-gray-50">
+<footer class="border-t border-gray-200 bg-navy text-white">
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <div>
-        <p class="font-semibold text-gray-900">{siteConfig.name}</p>
-        <p class="mt-1 text-sm text-gray-600">{siteConfig.tagline}</p>
+        <p class="font-semibold">{siteConfig.name}</p>
+        <p class="mt-1 text-sm text-gray-300">{siteConfig.tagline}</p>
       </div>
       <div>
-        <p class="text-sm font-medium text-gray-900">Contact (NAP)</p>
-        <p class="mt-1 text-sm text-gray-600">{siteConfig.address.full}</p>
-        <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} class="mt-1 block text-sm text-accent-blue hover:underline">{siteConfig.phone}</a>
-        <a href={`mailto:${siteConfig.email}`} class="mt-1 block text-sm text-accent-blue hover:underline">{siteConfig.email}</a>
+        <p class="text-sm font-medium text-gray-300">Contact (NAP)</p>
+        <p class="mt-1 text-sm">{siteConfig.address.full}</p>
+        <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} class="mt-1 block text-sm text-primary-muted hover:text-primary-light">{siteConfig.phone}</a>
+        <a href={`mailto:${siteConfig.email}`} class="mt-1 block text-sm text-primary-muted hover:text-primary-light">{siteConfig.email}</a>
       </div>
       <div>
-        <p class="text-sm font-medium text-gray-900">Quick links</p>
+        <p class="text-sm font-medium text-gray-300">Services</p>
         <ul class="mt-1 list-none space-y-1 text-sm">
-          <li><a href="/services/damp-condensation-surveys" class="text-gray-600 hover:text-primary">Damp surveys</a></li>
-          <li><a href="/services/indoor-air-quality-ventilation" class="text-gray-600 hover:text-primary">Air quality</a></li>
-          <li><a href="/contact" class="text-gray-600 hover:text-primary">Contact</a></li>
-          <li><a href={siteConfig.bookingUrl} class="text-gray-600 hover:text-primary">Book a visit</a></li>
+          <li><a href="/services/damp-moisture-forensics" class="text-gray-300 hover:text-white">Damp & moisture forensics</a></li>
+          <li><a href="/services/water-ingress-leak-causation" class="text-gray-300 hover:text-white">Water ingress</a></li>
+          <li><a href="/services/insurance-dispute-reports" class="text-gray-300 hover:text-white">Insurance & disputes</a></li>
+          <li><a href="/services/expert-witness-litigation" class="text-gray-300 hover:text-white">Expert witness</a></li>
         </ul>
       </div>
       <div>
-        <p class="text-sm font-medium text-gray-900">Areas we serve</p>
-        <p class="mt-1 text-sm text-gray-600">Southampton, Winchester, London, Hampshire & South East</p>
+        <p class="text-sm font-medium text-gray-300">Areas</p>
+        <p class="mt-1 text-sm text-gray-300">Southampton, Winchester, London, Hampshire & South East</p>
       </div>
     </div>
-    <p class="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
-      © {new Date().getFullYear()} {siteConfig.name}. Independent building diagnostics.
+    <p class="mt-8 border-t border-gray-600 pt-8 text-center text-sm text-gray-400">
+      © {new Date().getFullYear()} {siteConfig.name}. Independent forensic building consultancy.
     </p>
   </div>
 </footer>

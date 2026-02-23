@@ -1,20 +1,21 @@
 ---
 import { siteConfig } from '../site.config';
 ---
-<header class="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-gray-200 bg-white/98 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-    <a href="/" class="flex items-center gap-2 font-semibold text-gray-900 no-underline">
-      <span class="text-primary">IBFS</span>
-      <span class="hidden text-sm sm:inline">Building Science & Forensics</span>
+    <a href="/" class="flex items-center gap-2 font-semibold text-navy no-underline">
+      <span class="text-primary">{siteConfig.shortName}</span>
+      <span class="hidden text-sm text-navy-muted sm:inline">Building Forensics</span>
     </a>
     <nav class="flex items-center gap-3 sm:gap-6" aria-label="Main">
-      <a href="/services/damp-condensation-surveys" class="hidden text-sm text-gray-600 hover:text-primary sm:block">Services</a>
-      <a href="/locations/southampton" class="hidden text-sm text-gray-600 hover:text-primary sm:block">Areas</a>
-      <a href="/about" class="hidden text-sm text-gray-600 hover:text-primary sm:block">About</a>
-      <a href="/blog" class="hidden text-sm text-gray-600 hover:text-primary sm:block">Blog</a>
-      <a href="/contact" class="hidden rounded-lg bg-accent-blue px-4 py-2 text-sm font-medium text-white no-underline hover:bg-accent-blue-hover sm:inline-block">Contact</a>
-      <a href={siteConfig.bookingUrl} class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white no-underline hover:bg-primary-hover">Book a Visit</a>
-      <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} class="flex items-center gap-1 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 no-underline hover:border-primary hover:text-primary sm:hidden" aria-label="Call us">Call</a>
+      <a href="/services/damp-moisture-forensics" class="hidden text-sm text-navy-muted hover:text-navy sm:block">Services</a>
+      <a href="/southampton" class="hidden text-sm text-navy-muted hover:text-navy sm:block">Southampton</a>
+      <a href="/winchester" class="hidden text-sm text-navy-muted hover:text-navy sm:block">Winchester</a>
+      <a href="/london" class="hidden text-sm text-navy-muted hover:text-navy sm:block">London</a>
+      <a href="/about" class="hidden text-sm text-navy-muted hover:text-navy sm:block">About</a>
+      <a href="/contact" class="hidden rounded border border-navy px-4 py-2 text-sm font-medium text-navy no-underline hover:bg-navy hover:text-white sm:inline-block">Request Case Review</a>
+      <a href="/contact" class="rounded bg-navy px-4 py-2 text-sm font-medium text-white no-underline hover:bg-navy-light">Commission Investigation</a>
+      <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} class="flex items-center rounded border border-gray-300 px-3 py-2 text-sm font-medium text-navy no-underline hover:border-navy sm:hidden" aria-label="Call">Call</a>
     </nav>
   </div>
 </header>

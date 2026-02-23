@@ -1,6 +1,6 @@
-# Independent Building Science & Forensics – Website
+# Independent Building Forensics – Website
 
-Static marketing site for Independent Building Science & Forensics (Southampton, Winchester & London). Built with Astro and Tailwind, optimised for local SEO and conversion.
+Premium, litigation-grade website for **Independent Building Science & Forensics** (Southampton, Winchester & London). Positioned as a forensic consultancy—not a trades or contractor site—with instrument-led, defensible reports for disputes, insurance and litigation. Primary domain: **IndependentBuildingForensics.co.uk**. Built with Astro and Tailwind.
 
 ## Quick start
 

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+<BaseLayout
+  title="Forensic Building Investigations in Winchester | Independent Building Forensics"
+  description="Forensic building investigations and ventilation audit Winchester. Independent damp survey, condensation survey Hampshire. Instrument-led reports for disputes and litigation."
+>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      Forensic building investigations in Winchester
+    </h1>
+    <p class="mt-4 text-lg text-navy-muted leading-relaxed">
+      We conduct independent building forensics and forensic damp investigation across Winchester and Hampshire. Commissioned for damp and moisture disputes, water ingress investigation, condensation and ventilation failure, and building pathology. Ventilation audit Winchester and condensation survey Hampshire: our reports are data-led and suitable for insurance and legal use.
+    </p>
+    <p class="mt-4 text-navy-muted leading-relaxed">
+      Winchester’s historic and period housing often involves condensation after retrofit, penetrating damp and timber decay. We provide ventilation audit Winchester and independent damp survey work with full instrument-led diagnostics. No remedial tie; causation is documented for dispute resolution and expert witness instruction.
+    </p>
+    <section class="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6">
+      <h2 class="text-lg font-semibold text-navy">Services in Winchester</h2>
+      <p class="mt-2 text-sm text-navy-muted">Damp & moisture forensics, water ingress, condensation & ventilation failure, indoor air quality, building pathology, insurance & dispute reports, expert witness.</p>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        <li><a href="/services/condensation-ventilation-failure" class="text-primary hover:underline">Condensation & ventilation</a></li>
+        <li><a href="/services/damp-moisture-forensics" class="text-primary hover:underline">Damp & moisture forensics</a></li>
+        <li><a href="/services/expert-witness-litigation" class="text-primary hover:underline">Expert witness</a></li>
+      </ul>
+    </section>
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded bg-navy px-6 py-3 font-semibold text-white no-underline hover:bg-navy-light">Commission investigation</a>
+      <a href="/contact" class="rounded border-2 border-navy px-6 py-3 font-semibold text-navy no-underline hover:bg-navy hover:text-white">Request case review</a>
+    </section>
+    <p class="mt-8 border-t border-gray-200 pt-6 text-sm text-navy-muted">
+      <strong>NAP:</strong> {siteConfig.name}, {siteConfig.address.full}. Tel: {siteConfig.phone}. Email: {siteConfig.email}.
+    </p>
+  </article>
+</BaseLayout>

@@ -3,42 +3,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
 ---
 <BaseLayout
-  title={`About Us – ${siteConfig.name} | Independence & Expertise`}
-  description="Independent Building Science & Forensics: PhD-level expertise, evidence-based diagnostics and unbiased reports. Southampton, Winchester & London."
+  title={`About – ${siteConfig.name} | Principal & Methodology`}
+  description="About the Principal: PhD Chemical Engineering, scientific methodology, commitment to independence. Professional indemnity. Evidence-based forensic building consultancy. Southampton, Winchester & London."
 >
   <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-    <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-      About Independent Building Science & Forensics
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      About the principal
     </h1>
-    <p class="mt-3 text-lg text-gray-600">
+    <p class="mt-3 text-lg text-navy-muted">
       We operate from {siteConfig.buildingName}, {siteConfig.address.full}—serving Southampton, Winchester, London and the South East.
     </p>
 
-    <section class="mt-8" aria-labelledby="mission-heading">
-      <h2 id="mission-heading" class="text-xl font-semibold text-gray-900">Mission & independence</h2>
-      <p class="mt-2 text-gray-700 leading-relaxed">
-        Independent Building Science & Forensics is an impartial consultancy committed to evidence-based diagnostics and unbiased reports. We have no financial ties to contractors, remediation firms or product suppliers. Our only interest is giving you accurate findings and clear recommendations—whether you are a homebuyer, landlord, insurer or legal party.
+    <section class="mt-10" aria-labelledby="expertise-heading">
+      <h2 id="expertise-heading" class="text-xl font-semibold text-navy">Expertise & methodology</h2>
+      <p class="mt-2 text-navy-muted leading-relaxed">
+        Our work is underpinned by a PhD in Chemical Engineering and ongoing continuing professional development (CPD) in building pathology, damp and moisture, and indoor air quality. We hold relevant independent certifications and maintain professional indemnity insurance. Scientific methodology is applied to every investigation: we do not rely on visual assessment alone; we quantify moisture, ventilation and environmental loading using instrument-led, data-logged diagnostics.
       </p>
     </section>
 
-    <section class="mt-8" aria-labelledby="qualifications-heading">
-      <h2 id="qualifications-heading" class="text-xl font-semibold text-gray-900">Qualifications & experience</h2>
-      <p class="mt-2 text-gray-700 leading-relaxed">
-        Our work is underpinned by a PhD in Chemical Engineering and ongoing continuing professional development (CPD) in building pathology, damp and moisture, and indoor air quality. We hold relevant independent certifications and maintain professional indemnity insurance. This combination supports the scientific methodology we apply to every survey and report.
+    <section class="mt-10" aria-labelledby="independence-heading">
+      <h2 id="independence-heading" class="text-xl font-semibold text-navy">Commitment to independence</h2>
+      <p class="mt-2 text-navy-muted leading-relaxed">
+        Independent Building Science & Forensics is a non-remedial consultancy. We have no financial ties to contractors, remediation firms or product suppliers. Our only interest is accurate, defensible findings and clear causation analysis—whether you are an insurer, solicitor, developer or high-end residential client. Evidence-based practice and legal defensibility are central.
       </p>
     </section>
 
-    <section class="mt-8" aria-labelledby="philosophy-heading">
-      <h2 id="philosophy-heading" class="text-xl font-semibold text-gray-900">Service philosophy</h2>
-      <p class="mt-2 text-gray-700 leading-relaxed">
-        We focus on high-value work: diagnostics that matter for your decision-making or dispute resolution. We communicate clearly, avoid jargon where possible, and deliver reports that you can use with contractors, insurers or solicitors. Professional conduct, confidentiality and timely delivery are standard.
+    <section class="mt-10" aria-labelledby="practice-heading">
+      <h2 id="practice-heading" class="text-xl font-semibold text-navy">Practice</h2>
+      <p class="mt-2 text-navy-muted leading-relaxed">
+        We are commissioned for complex or high-value cases where clarity, independence and defensible conclusions are critical. Reports are structured for dispute resolution, insurance and litigation. Professional conduct, confidentiality and timely delivery are standard. The tone is measured, rational and expert—not sales-led.
       </p>
     </section>
 
-    <section class="mt-10">
-      <a href="/contact" class="inline-flex rounded-lg bg-primary px-6 py-3 font-semibold text-white no-underline hover:bg-primary-hover">
-        Get in touch
-      </a>
+    <section class="mt-10 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded bg-navy px-6 py-3 font-semibold text-white no-underline hover:bg-navy-light">Request case review</a>
+      <a href="/contact" class="rounded border-2 border-navy px-6 py-3 font-semibold text-navy no-underline hover:bg-navy hover:text-white">Commission investigation</a>
     </section>
   </article>
 </BaseLayout>

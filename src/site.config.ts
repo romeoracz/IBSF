@@ -1,14 +1,15 @@
 /**
  * Central config for NAP, contact and booking.
- * Update these values for production; keep NAP identical to Google Business Profile.
+ * Premium forensic consultancy – keep NAP identical to Google Business Profile.
  */
 export const siteConfig = {
   name: 'Independent Building Science & Forensics',
+  brandHeadline: 'Independent Building Forensics',
   shortName: 'IBFS',
-  tagline: 'Expert Diagnostics in Southampton, Winchester & London',
-  url: 'https://www.ibfs-forensics.co.uk',
+  tagline: 'Evidence That Stands Up in Court',
+  url: 'https://www.independentbuildingforensics.co.uk',
   description:
-    'Independent damp surveys, indoor air quality testing and building forensics. Southampton, Winchester & London.',
+    'Independent forensic building investigations. Instrument-led damp, moisture, ventilation and water ingress reports for disputes, insurance and litigation. Southampton, Winchester & London.',
 
   /** NAP – keep identical to Google Business Profile (15 Rockstone Pl, Southampton SO15 2EP) */
   address: {
